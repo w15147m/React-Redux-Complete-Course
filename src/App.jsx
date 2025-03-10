@@ -1,16 +1,15 @@
-import AppName from "./components/AppName";
-import AppTodo from "./components/AppTodo";
-import AppList from "./components/AppList";
-const App = () => {
 
+import ItemsList from "./components/ItemsList";
+import ItemError from "./components/ItemError";
+const App = () => {
+  let foodItems = ["Dal", "Green Vegetable", "Roti", "Salad", "Milk"];
   return (
-    <center className="todo_app">
-      <AppName/>
-      <div className="container">
-      <AppTodo/>
-      <AppList/>
-      </div>
+    <center className="p-3">
+      <h1>Food Items</h1>
+      <ItemError foodItems={foodItems}/>
+      <ItemsList foodItems={foodItems} />
     </center>
+
   );
 };
 
