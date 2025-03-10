@@ -9,9 +9,6 @@ const App = () => {
       <div className="container">
       <AppTodo/>
       <AppList/>
-     
-        
-     
       </div>
     </center>
   );
