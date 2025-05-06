@@ -1,12 +1,8 @@
+import ListItem from "./ListItem";
 function random({ ListItems }) {
     return (
         <ul className="list-group">
-            {ListItems.map((item) => (
-                <li key={item.id} className="list-group-item">
-                    {item.name}
-                </li>
-            ))}
-
+                <ListItem  ListItems={ListItems} />
         </ul>
     )
 }
