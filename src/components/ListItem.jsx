@@ -3,7 +3,7 @@ const ListItem = ({ item }) => {
         <td>{item.id}</td>
         <td>{item.name}</td>
         <td>{item.date}</td>
-        <td className="d-flex justify-content-start gap-1">
+        <td className="d-flex justify-content-center gap-1">
             <button className="btn btn-info text-white">
                 <i className="fa-solid fa-pen-to-square"></i>
             </button>

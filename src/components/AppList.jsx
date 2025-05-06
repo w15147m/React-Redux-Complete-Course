@@ -1,7 +1,7 @@
 import ListItem from "./listItem";
 
 const AppList = ({tasks}) => {
-    return <div className="row text-start">
+    return <div className="row justify-content-center text-center w-100 px-3">
         <table>
             <thead>
                 <tr>
@@ -11,7 +11,7 @@ const AppList = ({tasks}) => {
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody > 
                 {tasks.map((task) => {
                     return (
                         <ListItem key={task.id} item={task}/>
