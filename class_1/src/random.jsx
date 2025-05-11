@@ -18,6 +18,7 @@ function random() {
       e.target.value = ""; // Clear the input field after adding the item
     }
   }
+  
   const onClick = (id) => {
     console.log(id);
     
