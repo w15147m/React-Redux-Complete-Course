@@ -4,7 +4,7 @@ import TodoItems from "./components/TodoItems";
 import WelcomeMessage from "./components/WelcomeMessage";
 import "./App.css";
 import { useState } from "react";
-
+import { ItemStore } from "./store/itemStore";
 function App() {
   const [todoItems, setTodoItems] = useState([]);
 
@@ -16,21 +16,21 @@ function App() {
     ];
     setTodoItems(newTodoItems);
   };
-
   const handleDeleteItem = (todoItemName) => {
     const newTodoItems = todoItems.filter((item) => item.name !== todoItemName);
     setTodoItems(newTodoItems);
   };
-
   return (
     <center className="todo-container">
       <AppName />
+      <ItemStore.Provider value={{todoItems, handleNewItem, handleDeleteItem}}>
       <AddTodo onNewItem={handleNewItem} />
-      {todoItems.length === 0 && <WelcomeMessage></WelcomeMessage>}
+      <WelcomeMessage ></WelcomeMessage>
       <TodoItems
         todoItems={todoItems}
         onDeleteClick={handleDeleteItem}
       ></TodoItems>
+      </ItemStore.Provider>
     </center>
   );
 }

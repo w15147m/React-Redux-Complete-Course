@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fuzzy Search with Fuse.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 5px;
+      font-size: 16px;
+    }
+    .highlight {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fruit Search</h1>
+  <input type="text" id="searchInput" placeholder="Search for fruits...">
+  <ul id="results"></ul>
+
+  <script>
+    // Sample data to search through
+    const fruits = [
+      { name: "Apple" },
+      { name: "Banana" },
+      { name: "Orange" },
+      { name: "Mango" },
+      { name: "Pineapple" },
+      { name: "Strawberry" },
+      { name: "Blueberry" },
+      { name: "Watermelon" },
+      { name: "Grape" },
+      { name: "Kiwi" }
+    ];
+
+    // Initialize Fuse.js
+    const fuse = new Fuse(fruits, {
+      keys: ['name'],
+      includeScore: true,
+      threshold: 0.4,
+      ignoreLocation: true,
+      minMatchCharLength: 1
+    });
+
+    // Get input and results elements
+    const searchInput = document.getElementById('searchInput');
+    const resultsList = document.getElementById('results');
+
+    // Add input event listener
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+      const results = fuse.search(query);
+  console.log(`Searching for: ${query}`, results);
+  
+      // Clear previous results
+      resultsList.innerHTML = ''; 
+
+      // Display results
+      if (query) {
+        if (results.length === 0) {
+          const li = document.createElement('li');
+          li.textContent = 'No results found';
+          resultsList.appendChild(li);
+        } else {
+          results.forEach(result => {
+            const li = document.createElement('li');
+            // Highlight matched portion
+            const matchedText = result.item.name;
+            const highlighted = matchedText.replace(new RegExp(query, 'gi'), match => `<strong>${match}</strong>`);
+            li.innerHTML = highlighted;
+            li.classList.add('highlight');
+            resultsList.appendChild(li);
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>
