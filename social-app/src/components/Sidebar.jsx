@@ -46,19 +46,12 @@ function Sidebar() {
                     </button>
                 </li>
             </ul>
-            <hr />
-            <div className="dropdown">
-                <button type="button" className="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style={{ background: "none", border: "none", padding: 0 }}>
+            <div className="dropdown p-3">
+                <button type="button" className="d-flex align-items-center link-body-emphasis text-decoration-none " data-bs-toggle="dropdown" aria-expanded="false" style={{ background: "none", border: "none", padding: 0 }}>
                     <img src="https://github.com/mdo.png" alt="" width="32" height="32" className="rounded-circle me-2" />
-                    <strong>mdo</strong>
+                    <strong>Profile</strong>
                 </button>
-                <ul className="dropdown-menu text-small shadow">
-                    <li><button type="button" className="dropdown-item">New project...</button></li>
-                    <li><button type="button" className="dropdown-item">Settings</button></li>
-                    <li><button type="button" className="dropdown-item">Profile</button></li>
-                    <li><hr className="dropdown-divider" /></li>
-                    <li><button type="button" className="dropdown-item">Sign out</button></li>
-                </ul>
+             
             </div>
         </div>
     );
