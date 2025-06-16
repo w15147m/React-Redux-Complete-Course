@@ -7,14 +7,13 @@ import { useState } from "react";
 import { ItemStore } from "./store/itemStore";
 function App() {
   const [todoItems, setTodoItems] = useState([]);
-
   const handleNewItem = (itemName, itemDueDate) => {
     console.log(`New Item Added: ${itemName} Date:${itemDueDate}`);
     const newTodoItems = [
       ...todoItems,
       { name: itemName, dueDate: itemDueDate },
     ];
-    setTodoItems(newTodoItems);
+    setTodoItems(newTodoItems); 
   };
   const handleDeleteItem = (todoItemName) => {
     const newTodoItems = todoItems.filter((item) => item.name !== todoItemName);
