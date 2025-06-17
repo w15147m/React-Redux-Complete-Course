@@ -1,50 +1,25 @@
-function Sidebar() {
+function Sidebar({selectedPage, setSelectedPage}) {
+    const onClickHendler = (e) => {
+               setSelectedPage(e.target.value);
+    };
     return (
         <div className="d-flex flex-column flex-shrink-0  bg-body-tertiary" style={{ width: "200px" }}>
             <a href="/" style={{ height:"41px" }} className="d-flex border-bottom w-100  align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
                 <span className="fs-4 text-center w-100">Sidebar</span>
             </a>
             <ul className="nav px-3 nav-pills flex-column mb-auto">
-                <li className="nav-item mt-3">
-                    <a href="/home" className="nav-link active" aria-current="page">
-                        <svg className="bi pe-none me-2" width="16" height="16" aria-hidden="true">
-                            <use xlinkHref="#home"></use>
-                        </svg>
+              
+               <li>
+                    <button type="button" value='Home' onClick={onClickHendler} className={`nav-link mt-3 w-100 text ${selectedPage == 'Home' ? 'active' : 'text-black' } `} >
                         Home
-                    </a>
-                </li>
-                <li>
-                    <button type="button" className="nav-link link-body-emphasis" style={{ background: "none", border: "none", padding: 0, textAlign: "left" }}>
-                        <svg className="bi pe-none me-2" width="16" height="16" aria-hidden="true">
-                            <use xlinkHref="#speedometer2"></use>
-                        </svg>
-                        Dashboard
                     </button>
                 </li>
-                <li>
-                    <button type="button" className="nav-link link-body-emphasis" style={{ background: "none", border: "none", padding: 0, textAlign: "left" }}>
-                        <svg className="bi pe-none me-2" width="16" height="16" aria-hidden="true">
-                            <use xlinkHref="#table"></use>
-                        </svg>
-                        Orders
+               <li>
+                    <button type="button" value='Posts' onClick={onClickHendler} className={`nav-link mt-3 w-100 text ${selectedPage != 'Home' ? 'active' : 'text-black' } `} >
+                        Posts
                     </button>
                 </li>
-                <li>
-                    <button type="button" className="nav-link link-body-emphasis" style={{ background: "none", border: "none", padding: 0, textAlign: "left" }}>
-                        <svg className="bi pe-none me-2" width="16" height="16" aria-hidden="true">
-                            <use xlinkHref="#grid"></use>
-                        </svg>
-                        Products
-                    </button>
-                </li>
-                <li>
-                    <button type="button" className="nav-link link-body-emphasis" style={{ background: "none", border: "none", padding: 0, textAlign: "left" }}>
-                        <svg className="bi pe-none me-2" width="16" height="16" aria-hidden="true">
-                            <use xlinkHref="#people-circle"></use>
-                        </svg>
-                        Customers
-                    </button>
-                </li>
+               
             </ul>
             <div className="dropdown p-3">
                 <button type="button" className="d-flex align-items-center link-body-emphasis text-decoration-none " data-bs-toggle="dropdown" aria-expanded="false" style={{ background: "none", border: "none", padding: 0 }}>
