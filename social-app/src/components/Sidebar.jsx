@@ -1,6 +1,6 @@
 function Sidebar() {
     return (
-        <div className="d-flex flex-column flex-shrink-0  bg-body-tertiary" style={{ width: "280px" }}>
+        <div className="d-flex flex-column flex-shrink-0  bg-body-tertiary" style={{ width: "200px" }}>
             <a href="/" style={{ height:"41px" }} className="d-flex border-bottom w-100  align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
                 <span className="fs-4 text-center w-100">Sidebar</span>
             </a>
