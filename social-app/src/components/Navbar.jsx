@@ -24,7 +24,7 @@ function nav() {
                 <ul className="nav">
                     {" "}
 
-                    <li className="nav-item">
+                    <li className="nav-item ">
                         <button type="button" className="nav-link link-body-emphasis px-2" style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}>
                             Sign up
                         </button>
