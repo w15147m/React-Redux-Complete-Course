@@ -13,7 +13,7 @@ const CRUDPOST = () => {
                         <span className="badge bg">{addPost ? "Show Posts" : "Add Post"}</span>
                     </button>
                 </div>
-                {addPost ? <CreatePost /> : <PostListTable />}
+                {addPost ? <CreatePost showPostTable={() => setAddPost(false)} /> : <PostListTable />}
             </div>
         </div>
     );

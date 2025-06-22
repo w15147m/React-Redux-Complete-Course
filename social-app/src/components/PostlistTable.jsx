@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { PostStoreContext } from "../store/PostStore";
 
 const PostListTable = () => {
-    const { postList } = useContext(PostStoreContext);
+    const { postList, removePost } = useContext(PostStoreContext);
 
     return (
         <table className="table table-striped">
@@ -39,7 +39,7 @@ const PostListTable = () => {
                             <button className="btn btn-sm btn-outline-primary me-1" title="Edit">
                               Edit
                             </button>
-                            <button className="btn btn-sm btn-outline-danger" title="Delete">
+                            <button onClick={() => removePost(post.id)} className="btn btn-sm btn-outline-danger" title="Delete">
                                 Delete
                             </button>
                         </td>
