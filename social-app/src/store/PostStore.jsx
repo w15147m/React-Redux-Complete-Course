@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import { useEffect } from "react";
 
 const DEFAULT_POST_LIST = [];
 
@@ -43,6 +44,9 @@ const PostStore = ({ children }) => {
                 console.error("Failed to fetch posts:", error);
             });
     };
+    useEffect(() => {
+        getData();
+    }, []);
 
     return (
         <PostStoreContext.Provider value={{ postList, addPost, removePost, getData }}>
