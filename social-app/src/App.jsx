@@ -9,6 +9,7 @@ import CRUDPOST from './components/CRUDPOST';
 
 import { PostStore } from './store/PostStore';
 import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 function App() {
   const [selectedPage, setSelectedPage] = useState('Home');
   return (
@@ -18,7 +19,7 @@ function App() {
       <div className='w-100 d-flex flex-column justify-content-between'>
         <Navbar />
         <div className='flex-grow-1 '>
-          {selectedPage === 'Home' ? <PostList /> : <CRUDPOST />}
+         <Outlet/>
         </div>
         <Footer />
       </div>
